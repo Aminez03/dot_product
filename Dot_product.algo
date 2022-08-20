@@ -1,0 +1,62 @@
+PROCEDURE dot_product(v1,v2: ARRAY_OF INTEGER;ps:INTEGER)
+VAR
+    i:INTEGER;
+    x:INTEGER=v1.length-1;
+    y:INTEGER=v2.length-1;
+BEGIN
+    IF (x<>y) THEN
+    Write("we can't calculate")
+    RETURN ps:=NAN;
+    END_IF
+    FOR i FROM 0 TO x STEP 1  DO
+        ps:=ps+v1[i]*v2[i];
+    END_FOR
+END
+
+ALGORITHM arto_vecteur
+VAR
+    
+    ps,i,j:INTEGER;
+    v:ARRAY_OF ARRAY;
+BEGIN
+    FOR i FROM 0 TO v.length-1 STEP 1  DO
+        FOR j FROM 0 TO v.length-1 STEP 1  DO
+        dot_product(v[i],v[j],ps)
+        IF (ps=0) THEN
+        Write("les deux vecteurs sont orthogonaux ",v[i],v[j])    
+        END_IF
+        END_FOR
+    END_FOR
+    
+END
+FUNCTION function_dot_product(v1,v2: ARRAY_OF INTEGER;ps:INTEGER) : INTEGER
+VAR
+   i:INTEGER;
+    x:INTEGER=v1.length-1;
+    y:INTEGER=v2.length-1;
+BEGIN
+     IF (x<>y) THEN
+    Write("we can't calculate")
+    RETURN ps:=NAN;
+    END_IF
+    FOR i FROM 0 TO x STEP 1  DO
+        ps:=ps+v1[i]*v2[i];
+    END_FOR
+    RETURN ps ;
+END
+ALGORITHM arto_vecteur
+VAR
+    
+    ps,i,j:INTEGER;
+    v:ARRAY_OF ARRAY;
+BEGIN
+    FOR i FROM 0 TO v.length-1 STEP 1  DO
+        FOR j FROM 0 TO v.length-1 STEP 1  DO
+        function_dot_product(v[i],v[j],ps)
+        IF (ps=0) THEN
+        Write("les deux vecteurs sont orthogonaux ",v[i],v[j])    
+        END_IF
+        END_FOR
+    END_FOR
+    
+END
